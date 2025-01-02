@@ -1,0 +1,45 @@
+@model List<Kurss>
+  <h2>Kurs Listesi</h2>
+  <hr />
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Kurs Id</th>
+        <th>Kurs Adı</th>
+        <th style="width: 150px"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach(var krs in Model) {
+      <tr>
+        <td>@krs.KursId</td>
+        <td>@krs.Baslik</td>
+        <td>
+          <a
+            asp-controller="Kurss"
+            asp-action="Edit"
+            asp-route-id="@krs.KursId"
+            class="btn btn-sm btn-primary"
+            >Edit</a
+          >
+          <a
+            asp-controller="Kurss"
+            asp-action="Incele"
+            asp-route-id="@krs.KursId"
+            class="btn btn-sm btn-primary"
+            >İncele</a
+          >
+         <form method="post" asp-action="Delete">
+          <a
+            class="btn btn-sm btn-danger"
+            asp-controller="Kurss"
+            asp-action="Delete"
+            asp-route-id="@krs.KursId"
+            >Delete</a
+          ></form>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</Kurs>

@@ -1,0 +1,38 @@
+@model List<Ogrenci>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Ogrenci Id</th>
+            <th>Ogrenci Adı</th>
+            <th>Ogrenci Soyadı</th>
+            <th style="width: 150px"></th>
+        </tr>
+    </thead>
+    <tbody>
+         @foreach(var ogr in Model) {
+      <tr>
+        <td>@ogr.OgrenciId</td>
+        <td>@ogr.OgrenciAd</td>
+        <td>@ogr.OgrenciSoyad</td>
+        <td>
+          <a
+            class="btn btn-sm btn-primary"
+            asp-controller="Home"
+            asp-action="Edit"
+            asp-route-id="@ogr.OgrenciId"
+            >Edit</a
+          >
+         <form method="post" asp-action="Delete">
+          <a
+            class="btn btn-sm btn-danger"
+            asp-controller="Home"
+            asp-action="Delete"
+            asp-route-id="@ogr.OgrenciId"
+            >Delete</a
+          ></form>
+        </td>
+      </tr>
+      }
+    </tbody>
+</table>

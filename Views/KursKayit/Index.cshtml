@@ -1,0 +1,27 @@
+@model IEnumerable<KursKayit>
+  <h2>Öğrenci Listesi</h2>
+  <hr />
+  <table class="table">
+    <thead>
+      <tr>
+        <th>KursKayıt Id</th>
+        <th>Ogrenci Adı</th>
+        <th>Kurs Soyadı</th>
+        <th style="width: 150px"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach(var ogr in Model) {
+      <tr>
+        <td>@ogr.KayitId</td>
+        <td>@ogr.Ogrenci.OgrenciAd</td>
+        <td>@ogr.Kurs.Baslik</td>
+        <td>
+          <a class="btn btn-sm btn-primary">Edit</a>
+          <a class="btn btn-sm btn-danger">Delete</a>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</KursKayit>

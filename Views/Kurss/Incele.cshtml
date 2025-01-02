@@ -1,0 +1,14 @@
+@model Kurss
+
+<h2 class="mx-3">@Model.Baslik</h2>
+
+<h5 class="mx-2">@Model.Ogretmen.AdSoyad</h5>
+
+<ul class="list-group">
+    @foreach (var kayit in Model.KursKayitlari)
+    {
+        <li class="list-group-item">
+            @kayit.Ogrenci.AdSoyad
+        </li>
+    }
+</ul>
